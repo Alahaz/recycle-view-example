@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                 title = "Mode Card View"
             }
         }
+        setActionBarTitle(title)
     }
 
     private fun setActionBarTitle(title:String){
