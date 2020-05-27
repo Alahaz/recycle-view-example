@@ -35,6 +35,7 @@ object DataPahlawan {
         R.drawable.ki_hadjar_dewantara,
         R.drawable.mohammad_hatta,
         R.drawable.sudirman,
+        R.drawable.sukarno,
         R.drawable.supomo,
         R.drawable.tan_malaka
     )
