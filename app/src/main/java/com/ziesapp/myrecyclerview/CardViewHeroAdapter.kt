@@ -26,12 +26,24 @@ class CardViewHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
 
         Glide.with(holder.itemView.context)
             .load(pahlawan.foto)
-            .apply(RequestOptions().override(350,550))
+            .apply(RequestOptions().override(350, 550))
             .into(holder.imgPhoto)
         holder.tvName.text = pahlawan.nama
         holder.tvDetail.text = pahlawan.detail
-        holder.btnFav.setOnClickListener{Toast.makeText(holder.itemView.context,"Favorit"+listPahlawan[holder.adapterPosition].nama,Toast.LENGTH_SHORT).show()}
-        holder.btnShare.setOnClickListener{Toast.makeText(holder.itemView.context,"Share"+listPahlawan[holder.adapterPosition].nama,Toast.LENGTH_SHORT).show()}
+        holder.btnFav.setOnClickListener {
+            Toast.makeText(
+                holder.itemView.context,
+                "Favorit" + listPahlawan[holder.adapterPosition].nama,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        holder.btnShare.setOnClickListener {
+            Toast.makeText(
+                holder.itemView.context,
+                "Share" + listPahlawan[holder.adapterPosition].nama,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -39,13 +51,13 @@ class CardViewHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
     }
 
 
-    inner class CardViewViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
+    inner class CardViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_foto_pahlawan)
         var tvName: TextView = itemView.findViewById(R.id.tv_nama_pahlawan)
-        var tvDetail:TextView = itemView.findViewById(R.id.tv_detail_pahlawan)
+        var tvDetail: TextView = itemView.findViewById(R.id.tv_detail_pahlawan)
         var btnFav: Button = itemView.findViewById(R.id.btn_set_fav)
-        var btnShare:Button = itemView.findViewById(R.id.btn_set_share)
+        var btnShare: Button = itemView.findViewById(R.id.btn_set_share)
 
     }
 

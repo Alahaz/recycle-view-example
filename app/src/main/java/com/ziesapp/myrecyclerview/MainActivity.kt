@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
     private lateinit var rvPahlawan: RecyclerView
     private var list: ArrayList<Pahlawan> = arrayListOf()
-    private var title:String = "Mode List"
+    private var title: String = "Mode List"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity() {
         rvPahlawan.adapter = listHeroAdapter
     }
 
-    private fun showRecyclerGrid(){
-        rvPahlawan.layoutManager = GridLayoutManager(this,2)
+    private fun showRecyclerGrid() {
+        rvPahlawan.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(list)
         rvPahlawan.adapter = gridHeroAdapter
     }
 
-    private fun showCardView(){
+    private fun showCardView() {
         rvPahlawan.layoutManager = LinearLayoutManager(this)
         val cardViewHeroAdapter = CardViewHeroAdapter(list)
         rvPahlawan.adapter = cardViewHeroAdapter
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main,menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -55,18 +55,18 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setMode(selectedMode:Int){
-        when(selectedMode){
-            R.id.action_list ->{
+    private fun setMode(selectedMode: Int) {
+        when (selectedMode) {
+            R.id.action_list -> {
                 showRecyclerList()
                 title = "Mode List"
             }
 
-            R.id.action_grid ->{
+            R.id.action_grid -> {
                 showRecyclerGrid()
                 title = "Mode Grid"
             }
-            R.id.action_cardview->{
+            R.id.action_cardview -> {
                 showCardView()
                 title = "Mode Card View"
             }
@@ -74,8 +74,8 @@ class MainActivity : AppCompatActivity() {
         setActionBarTitle(title)
     }
 
-    private fun setActionBarTitle(title:String){
-        if(supportActionBar != null){
+    private fun setActionBarTitle(title: String) {
+        if (supportActionBar != null) {
             (supportActionBar as ActionBar).title = title
         }
     }
