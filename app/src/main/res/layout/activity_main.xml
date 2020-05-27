@@ -10,5 +10,5 @@
         android:id="@+id/rv_pahlawan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="layout/baris_pahlawan" />
+        tools:listitem="@layout/baris_pahlawan" />
 </RelativeLayout>

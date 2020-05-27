@@ -18,11 +18,6 @@ class ListHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
         return ListViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return listPahlawan.size
-
-    }
-
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val pahlawan = listPahlawan[position]
 
@@ -30,13 +25,19 @@ class ListHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
             .load(pahlawan.foto)
             .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
+
         holder.tvName.text = pahlawan.nama
         holder.tvDetail.text = pahlawan.detail
     }
 
+    override fun getItemCount(): Int {
+        return listPahlawan.size
+
+    }
+
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_nama_pahlawan)
-        var tvDetail: TextView = itemView.findViewById(R.id.detail_pahlawan)
+        var tvDetail: TextView = itemView.findViewById(R.id.tv_detail_pahlawan)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_foto_pahlawan)
 
     }
