@@ -1,8 +1,8 @@
 package com.ziesapp.myrecyclerview
 
-data class Hero(
-    var name: String = "",
+data class Pahlawan(
+    var nama: String = "",
     var detail: String = "",
-    var photo: Int = 0
+    var foto: Int = 0
 ) {
 }
