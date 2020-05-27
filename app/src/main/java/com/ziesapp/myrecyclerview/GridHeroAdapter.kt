@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class GridHeroAdapter(val listPahlawan: ArrayList<Pahlawan>) :
+class GridHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
     RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
