@@ -9,14 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ListHeroAdapter(private val listPahlawan:ArrayList<Pahlawan>):RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
+class ListHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
+    RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
-        val view:View = LayoutInflater.from(viewGroup.context).inflate(R.layout.baris_pahlawan,viewGroup,false)
+        val view: View = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.baris_pahlawan, viewGroup, false)
         return ListViewHolder(view)
     }
 
-    override fun getItemCount():Int {
+    override fun getItemCount(): Int {
         return listPahlawan.size
 
     }
@@ -26,7 +28,7 @@ class ListHeroAdapter(private val listPahlawan:ArrayList<Pahlawan>):RecyclerView
 
         Glide.with(holder.itemView.context)
             .load(pahlawan.foto)
-            .apply(RequestOptions().override(55,55))
+            .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
         holder.tvName.text = pahlawan.nama
         holder.tvDetail.text = pahlawan.detail

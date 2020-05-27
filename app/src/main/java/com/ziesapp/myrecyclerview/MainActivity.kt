@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var rvPahlawan: RecyclerView
-    private var list:ArrayList<Pahlawan> = arrayListOf()
+    private var list: ArrayList<Pahlawan> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,11 +16,11 @@ class MainActivity : AppCompatActivity() {
         rvPahlawan = findViewById(R.id.rv_pahlawan)
         rvPahlawan.setHasFixedSize(true)
 
-       list.addAll(DataPahlawan.listData)
+        list.addAll(DataPahlawan.listData)
         showRecyclerList()
     }
 
-    private fun showRecyclerList(){
+    private fun showRecyclerList() {
         rvPahlawan.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
         rvPahlawan.adapter = listHeroAdapter
