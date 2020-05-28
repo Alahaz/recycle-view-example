@@ -33,16 +33,19 @@ class CardViewHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
         holder.btnFav.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Favorit" + listPahlawan[holder.adapterPosition].nama,
+                "Favorit " + listPahlawan[holder.adapterPosition].nama,
                 Toast.LENGTH_SHORT
             ).show()
         }
         holder.btnShare.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Share" + listPahlawan[holder.adapterPosition].nama,
+                "Share " + listPahlawan[holder.adapterPosition].nama,
                 Toast.LENGTH_SHORT
             ).show()
+        }
+        holder.itemView.setOnClickListener{
+            Toast.makeText(holder.itemView.context, "Kamu memilih "+listPahlawan[position].nama,Toast.LENGTH_SHORT).show()
         }
     }
 

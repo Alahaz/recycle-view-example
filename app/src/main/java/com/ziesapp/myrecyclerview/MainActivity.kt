@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,12 +31,24 @@ class MainActivity : AppCompatActivity() {
         rvPahlawan.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
         rvPahlawan.adapter = listHeroAdapter
+
+        listHeroAdapter.setOnItemClickCallBack(object :ListHeroAdapter.OnItemClickCallBack{
+            override fun onItemClicked(data:Pahlawan){
+                showSelectedPahlawan(data)
+            }
+        })
     }
 
     private fun showRecyclerGrid() {
         rvPahlawan.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(list)
         rvPahlawan.adapter = gridHeroAdapter
+
+        gridHeroAdapter.setOnItemClickCallBack(object:GridHeroAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: Pahlawan) {
+                showSelectedPahlawan(data)
+            }
+        })
     }
 
     private fun showCardView() {
@@ -78,6 +91,10 @@ class MainActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             (supportActionBar as ActionBar).title = title
         }
+    }
+
+    private fun showSelectedPahlawan(pahlawan: Pahlawan){
+        Toast.makeText(this, "Kamu memilih "+pahlawan.nama,Toast.LENGTH_SHORT).show()
     }
 
 }

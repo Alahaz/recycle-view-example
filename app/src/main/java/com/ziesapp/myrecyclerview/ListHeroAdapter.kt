@@ -12,6 +12,13 @@ import com.bumptech.glide.request.RequestOptions
 class ListHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
     RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
 
+    private lateinit var onItemClickCallBack: OnItemClickCallBack
+
+    fun setOnItemClickCallBack(onItemClickCallBack: OnItemClickCallBack) {
+        this.onItemClickCallBack = onItemClickCallBack
+    }
+
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.baris_pahlawan, viewGroup, false)
@@ -28,11 +35,16 @@ class ListHeroAdapter(private val listPahlawan: ArrayList<Pahlawan>) :
 
         holder.tvName.text = pahlawan.nama
         holder.tvDetail.text = pahlawan.detail
+        holder.itemView.setOnClickListener { onItemClickCallBack.onItemClicked(listPahlawan[holder.adapterPosition]) }
     }
 
     override fun getItemCount(): Int {
         return listPahlawan.size
 
+    }
+
+    interface OnItemClickCallBack {
+        fun onItemClicked(data: Pahlawan)
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
